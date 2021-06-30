@@ -16,6 +16,7 @@
 						<th>City</th>
 						<th>Profession</th>
 						<th>Institution</th>
+						<th>Event</th>
 					</tr>
 				</table>
 			</div>
@@ -38,12 +39,14 @@
 			var cellCity = row.insertCell(3);
 			var cellProfession = row.insertCell(4);
 			var cellInstitution = row.insertCell(5);
+			var cellEvent = row.insertCell(6);
 			cellId.appendChild(document.createTextNode(childKey));
 			cellName.appendChild(document.createTextNode(childData.name));
 			cellEmail.appendChild(document.createTextNode(childData.email));
 			cellCity.appendChild(document.createTextNode(childData.city));
 			cellProfession.appendChild(document.createTextNode(childData.profession));
 			cellInstitution.appendChild(document.createTextNode(childData.institution));
+			cellEvent.appendChild(document.createTextNode(childData.event));
 			rowIndex = rowIndex + 1;
 		});
 	});

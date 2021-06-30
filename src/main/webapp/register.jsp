@@ -15,6 +15,7 @@
 				</div>
 				<form>
 					<input type="hidden" id="room" />
+					<input type="hidden" id="title" />
 					<div class="form-floating mb-3">
 						<input class="form-control" id="name" type="text"
 							placeholder="Input Name" required /> <label for="name">Full
@@ -55,6 +56,7 @@
 						const urlParams = new URLSearchParams(queryString);
 
 						const id = urlParams.get('id');
+						
 
 						firebase
 								.database()
@@ -65,6 +67,7 @@
 											var childKey = snapshot.key;
 											var data = snapshot.val();
 											var title = data.title;
+											document.getElementById("title").value = title;
 											var date = data.date;
 											var time = data.time;
 											var url = data.url;
@@ -84,6 +87,7 @@
 						
 					});
 	function register_event() {
+		var title = document.getElementById('title').value;
 		var room = document.getElementById('room').value;
 		var name = document.getElementById('name').value;
 		var email = document.getElementById('email').value;
@@ -96,7 +100,8 @@
 			email : email,
 			city : city,
 			profession : profession,
-			institution : institution
+			institution : institution,
+			event : title
 		}
 		var updates = {};
 		updates['/participant/' + uid] = data;
